@@ -1,0 +1,28 @@
+aftscript 1.0;
+
+scenario TextInput {
+
+    String setNewButtonName = "user";
+
+    elements {
+
+        // UI Test Automation Playground (/)
+        Element textInput = By.role(Role.Link, "Text Input");
+
+        // Text Input (/textinput)
+        Element setNewButtonNameAlani = By.role(Role.Textbox, "Set New Button Name");
+        /** Sıra seçicisi: sayfada birden çok benzer öğe var, düzen değişince kırılır */
+        Element buttonThatShouldChange = By.role(Role.Button, "Button That Should Change it's Name Based on Input Value");
+        Element home = By.role(Role.Link, "Home");
+    }
+
+    @Steps
+    public void test() {
+
+        browser.open("/");
+        click(textInput);
+        fill(setNewButtonNameAlani, setNewButtonName);
+        click(buttonThatShouldChange);
+        click(home);
+    }
+}
