@@ -17,11 +17,16 @@ scenario SampleApp {
         Element logOut = By.role(Role.Button, "Log Out");
         Element home = By.role(Role.Link, "Home");
     }
-
+    
+    @Before
+    void once() {
+        setViewport(1360,720);
+        browser.open("/");
+        wait.url("http://www.uitestingplayground.com/");
+    }
+    
     @Steps
     public void test() {
-
-        browser.open("/");
         click(sampleApp);
         fill(userNameAlani, userName);
         fill(alanAlani, alan);
@@ -29,5 +34,11 @@ scenario SampleApp {
         wait(2s);
         click(logOut);
         click(home);
+    }
+    @After
+    void temizlik() {
+        browser.reload();
+        wait(2s);
+        cache.close();
     }
 }
