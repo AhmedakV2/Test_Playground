@@ -1,0 +1,48 @@
+aftscript 1.0;
+
+scenario CssSelectors {
+
+    String username = "username";
+    String email = "email";
+
+    elements {
+
+        // UI Test Automation Playground (/)
+        Element cssSelectors = By.role(Role.Link, "CSS Selectors");
+
+        // CSS Selectors (/cssselectors)
+        Element primaryButton = By.role(Role.Button, "Primary Button");
+        Element first = By.role(Role.Button, "First");
+        Element second = By.role(Role.Button, "Second");
+        Element third = By.role(Role.Button, "Third");
+        Element usernameAlani = By.testId("username-input").role(Role.Textbox, "Username");
+        Element emailAlani = By.testId("email-input").role(Role.Textbox, "Email");
+        Element iAmVisible = By.role(Role.Button, "I am visible");
+        Element level1Button = By.role(Role.Button, "Level 1 Button");
+        Element level2Button = By.role(Role.Button, "Level 2 Button");
+        Element level3Button = By.role(Role.Button, "Level 3 Button");
+        Element level1Input = By.role(Role.Textbox, "Level 1 Input");
+        Element level2Input = By.role(Role.Textbox, "Level 2 Input");
+        Element level3Input = By.role(Role.Textbox, "Level 3 Input");
+    }
+
+    @Steps
+    public void test() {
+
+        browser.open("/");
+        click(cssSelectors);
+        click(primaryButton);
+        click(first);
+        click(second);
+        click(third);
+        fill(usernameAlani, username);
+        fill(emailAlani, email);
+        click(iAmVisible);
+        click(level1Button);
+        click(level2Button);
+        click(level3Button);
+        fill(level1Input, random.tckn());
+        fill(level2Input, random.tckn());
+        fill(level3Input, random.tckn());
+    }
+}

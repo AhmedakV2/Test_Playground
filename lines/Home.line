@@ -5,4 +5,5 @@ line Home {
     scenario ShadowDom;
     scenario TextInput;
     scenario dynamicId;
+    scenario CssSelectors;
 }
