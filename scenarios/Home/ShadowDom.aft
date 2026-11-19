@@ -1,0 +1,25 @@
+aftscript 1.0;
+
+scenario ShadowDom {
+
+    elements {
+
+        // UI Test Automation Playground (/)
+        Element shadowDom = By.role(Role.Link, "Shadow DOM");
+
+        // Shadow DOM (/shadowdom)
+        Element buttonGenerate = By.id("buttonGenerate").role(Role.Button);
+        Element buttonCopy = By.id("buttonCopy").role(Role.Button);
+        Element home = By.role(Role.Link, "Home");
+    }
+
+    @Steps
+    public void test() {
+
+        browser.open("/");
+        click(shadowDom);
+        click(buttonGenerate);
+        click(buttonCopy);
+        click(home);
+    }
+}

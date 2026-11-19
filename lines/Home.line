@@ -2,4 +2,5 @@ aftscript 1.0;
 
 line Home {
     scenario SampleApp;
+    scenario ShadowDom;
 }
