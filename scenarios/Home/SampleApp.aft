@@ -1,0 +1,33 @@
+aftscript 1.0;
+
+scenario SampleApp {
+
+    String userName = "username";
+    Secret alan = vault.get("www.sifre");
+
+    elements {
+
+        // UI Test Automation Playground (/)
+        Element sampleApp = By.role(Role.Link, "Sample App");
+
+        // Sample App (/sampleapp)
+        Element userNameAlani = By.role(Role.Textbox, "User Name");
+        Element alanAlani = By.role(Role.Textbox, "********");
+        Element logIn = By.role(Role.Button, "Log In");
+        Element logOut = By.role(Role.Button, "Log Out");
+        Element home = By.role(Role.Link, "Home");
+    }
+
+    @Steps
+    public void test() {
+
+        browser.open("/");
+        click(sampleApp);
+        fill(userNameAlani, userName);
+        fill(alanAlani, alan);
+        click(logIn);
+        wait(2s);
+        click(logOut);
+        click(home);
+    }
+}
