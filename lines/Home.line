@@ -4,4 +4,5 @@ line Home {
     scenario SampleApp;
     scenario ShadowDom;
     scenario TextInput;
+    scenario dynamicId;
 }

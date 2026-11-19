@@ -1,0 +1,46 @@
+aftscript 1.0;
+
+scenario dynamicId {
+
+    elements {
+
+        // UI Test Automation Playground (/)
+        Element dynamicId = By.role(Role.Link, "Dynamic ID");
+
+        // Dynamic ID (/dynamicid)
+        Element buttonWithDynamicId = By.role(Role.Button, "Button with Dynamic ID");
+        Element home = By.role(Role.Link, "Home");
+
+        // UI Test Automation Playground (/)
+        Element frames = By.role(Role.Link, "Frames");
+
+        // Frames (/frames)
+        Element primary = By.role(Role.Button, "Primary").frame("Outer Frame");
+        Element clickMe = By.role(Role.Button, "Click me").frame("Outer Frame");
+        Element submit = By.role(Role.Button, "Submit").frame("Outer Frame");
+        Element edit = By.role(Role.Button, "Edit").frame("Outer Frame");
+        Element edit2 = By.role(Role.Button, "Edit").frame("Outer Frame > Inner Frame");
+        Element submit2 = By.role(Role.Button, "Submit").frame("Outer Frame > Inner Frame");
+        Element clickMe2 = By.role(Role.Button, "Click me").frame("Outer Frame > Inner Frame");
+        Element primary2 = By.role(Role.Button, "Primary").frame("Outer Frame > Inner Frame");
+    }
+
+    @Steps
+    public void test() {
+
+        browser.open("/");
+        click(dynamicId);
+        click(buttonWithDynamicId);
+        wait(2s);
+        click(home);
+        click(frames);
+        click(primary);
+        click(clickMe);
+        click(submit);
+        click(edit);
+        click(edit2);
+        click(submit2);
+        click(clickMe2);
+        click(primary2);
+    }
+}
