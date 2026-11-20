@@ -24,6 +24,13 @@ scenario CssSelectors {
         Element level1Input = By.role(Role.Textbox, "Level 1 Input");
         Element level2Input = By.role(Role.Textbox, "Level 2 Input");
         Element level3Input = By.role(Role.Textbox, "Level 3 Input");
+
+        // UI Test Automation Playground (/)
+        Element dynamicId = By.role(Role.Link, "Dynamic ID");
+
+        // Dynamic ID (/dynamicid)
+        Element buttonWithDynamicId = By.role(Role.Button, "Button with Dynamic ID");
+        Element home = By.role(Role.Link, "Home");
     }
 
     @Steps
@@ -44,5 +51,9 @@ scenario CssSelectors {
         fill(level1Input, random.tckn());
         fill(level2Input, random.tckn());
         fill(level3Input, random.tckn());
+        browser.open("/");
+        click(dynamicId);
+        click(buttonWithDynamicId);
+        click(home);
     }
 }
